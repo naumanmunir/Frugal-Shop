@@ -7,7 +7,30 @@
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <ListView
+<!--<ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
+    <CarouselPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="CarouselPageNavigation.MainPage">
+        <ContentPage>
+            <ContentPage.Padding>
+                <OnPlatform
+                    x:TypeArguments="Thickness"
+                    iOS="0,40,0,0"
+                    Android="0,40,0,0" />
+            </ContentPage.Padding>
+            <StackLayout>
+                <Label
+                    Text="Red"
+                    FontSize="Medium"
+                    HorizontalOptions="Center" />
+                <BoxView
+                    Color="Red"
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ContentPage>
+    </CarouselPage>
 </RelativeLayout>

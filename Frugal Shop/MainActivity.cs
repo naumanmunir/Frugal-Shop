@@ -9,84 +9,133 @@ using Java.Lang;
 using com.refractored;
 using Android.Support.V4.View;
 using Android.Support.V7.Widget;
+using Android.Support.Design.Widget;
+using SupportFragment = Android.Support.V4.App.Fragment;
+using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
+using SupportActionBar = Android.Support.V7.App.ActionBar;
+using System.Collections.Generic;
+using Android.Text;
+using Android.Text.Style;
 
 namespace Frugal_Shop
 {
     [Activity(Label = "Frugal Shop", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     public class MainActivity : AppCompatActivity
     {
-        private Android.Support.V7.Widget.Toolbar myToolBar;
-        MyAdapter adapt;
-        PagerSlidingTabStrip tabs;
-        ViewPager pager;
-
+        private Android.Support.V7.Widget.Toolbar toolBar;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+            toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolBar);
+            SetSupportActionBar(toolBar);
 
+            SpannableString s = new SpannableString("Frugal Shop");
+            s.SetSpan(new TypefaceSpan("Assets/fonts/BrightLarch.ttf"), 0, s.Length(), SpanTypes.ExclusiveExclusive);
+            
+            SupportActionBar ab = SupportActionBar;
+            ab.TitleFormatted = s;
+            
+            TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
 
-            //adapt = new MyAdapter(SupportFragmentManager);
-            //tabs = FindViewById<PagerSlidingTabStrip>(Resource.Id.tabs);
-            //pager = FindViewById<ViewPager>(Resource.Id.pager);
+            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.vpager);
+            SetUpViewPager(viewPager);
+            tabs.SetupWithViewPager(viewPager);
 
-            //pager.Adapter = adapt;
-            //tabs.SetViewPager(pager);
-            //tabs.SetBackgroundColor(Android.Graphics.Color.Argb(255, 0, 149, 164));
 
         }
 
-        public override void SetSupportActionBar(Android.Support.V7.Widget.Toolbar toolbar)
+        private void SetUpViewPager(ViewPager viewPager)
         {
-            myToolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(myToolBar);
+            TabAdapter tAdapter = new TabAdapter(SupportFragmentManager);
+
+            tAdapter.AddFragment(new Fragment1(), "Woman");
+            tAdapter.AddFragment(new Fragment1(), "Man");
+            tAdapter.AddFragment(new Fragment1(), "Home");
+
+            viewPager.Adapter = tAdapter;
         }
     }
 
-
-    public class MyAdapter : FragmentPagerAdapter
+    public class TabAdapter : FragmentPagerAdapter
     {
-        int tabCount = 3;
+        public List<SupportFragment> Fragments { get; set; }
+        public List<string> FragmentNames { get; set; }
 
-        public MyAdapter(Android.Support.V4.App.FragmentManager fm):base(fm)
+        public TabAdapter(SupportFragmentManager sfm) : base(sfm)
         {
+            Fragments = new List<SupportFragment>();
+            FragmentNames = new List<string>();
+        }
 
+        public void AddFragment(SupportFragment fragment, string name)
+        {
+            Fragments.Add(fragment);
+            FragmentNames.Add(name);
         }
 
         public override int Count
         {
             get
             {
-                return tabCount;
+                return Fragments.Count;
             }
+        }
+
+        public override SupportFragment GetItem(int position)
+        {
+            return Fragments[position];
         }
 
         public override ICharSequence GetPageTitleFormatted(int position)
         {
-            ICharSequence cs;
-
-            if (position == 0)
-            {
-                cs = new Java.Lang.String("Man");
-            }
-            else if (position == 1)
-            {
-                cs = new Java.Lang.String("Woman");
-            }
-            else
-            {
-                cs = new Java.Lang.String("Home");
-            }
-
-            return cs;
-        }
-
-        public override Android.Support.V4.App.Fragment GetItem(int position)
-        {
-            return ContentFragment.NewInstance(position);
+            return new Java.Lang.String(FragmentNames[position]);
         }
     }
+
+    //public class MyAdapter : FragmentPagerAdapter
+    //{
+    //    int tabCount = 3;
+
+    //    public MyAdapter(Android.Support.V4.App.FragmentManager fm):base(fm)
+    //    {
+
+    //    }
+
+    //    public override int Count
+    //    {
+    //        get
+    //        {
+    //            return tabCount;
+    //        }
+    //    }
+
+    //    public override ICharSequence GetPageTitleFormatted(int position)
+    //    {
+    //        ICharSequence cs;
+
+    //        if (position == 0)
+    //        {
+    //            cs = new Java.Lang.String("Man");
+    //        }
+    //        else if (position == 1)
+    //        {
+    //            cs = new Java.Lang.String("Woman");
+    //        }
+    //        else
+    //        {
+    //            cs = new Java.Lang.String("Home");
+    //        }
+
+    //        return cs;
+    //    }
+
+    //    public override Android.Support.V4.App.Fragment GetItem(int position)
+    //    {
+    //        return ContentFragment.NewInstance(position);
+    //    }
+    //}
 
 }
 

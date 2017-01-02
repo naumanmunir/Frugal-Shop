@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-  <style name="MyTheme" parent="Theme.AppCompat.Light">
-    <item name="android:windowActionBar">false</item>
-    <item name="android:windowNoTitle">true</item>
+  <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="colorPrimary">#0095a4</item>
     <item name="colorAccent">#FF4081</item>
-    <item name="android:textColorPrimary">#fff</item>
-  </style>
-  
-  <style name="Theme.Design" parent="Base.Theme.Design">
   </style>
   
   <style name="Base.Theme.Design" parent="Theme.AppCompat.Light.NoActionBar">
@@ -18,8 +12,10 @@
     <item name="android:colorPrimaryDark">#512DA8</item>
     <item name="android:colorAccent">#FF4081</item>
   </style>
-  
-  <style name="Theme.DesignDemo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-  <style name="Theme.DesignDemo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+  <style name="ToolbarTitleTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <item name="android:textSize">24sp</item>
+    <item name="android:textColorPrimary">#fff</item>
+  </style>
+
 </resources>

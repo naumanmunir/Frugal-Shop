@@ -16,6 +16,7 @@ using SupportActionBar = Android.Support.V7.App.ActionBar;
 using System.Collections.Generic;
 using Android.Text;
 using Android.Text.Style;
+using Android.Views;
 
 namespace Frugal_Shop
 {
@@ -46,12 +47,31 @@ namespace Frugal_Shop
 
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.actionbar_buttons, menu);
+            return true;
+        }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                //todo
+                //case Resource.Id.action_favorite:
+                //    return true;
+                case Resource.Id.action_settings:
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
         private void SetUpViewPager(ViewPager viewPager)
         {
             TabAdapter tAdapter = new TabAdapter(SupportFragmentManager);
 
             tAdapter.AddFragment(new Fragment1(), "Woman");
-            tAdapter.AddFragment(new Fragment1(), "Man");
+            tAdapter.AddFragment(new Fragment2(), "Man");
             tAdapter.AddFragment(new Fragment1(), "Home");
 
             viewPager.Adapter = tAdapter;

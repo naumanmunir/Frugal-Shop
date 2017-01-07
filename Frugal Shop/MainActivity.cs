@@ -17,6 +17,9 @@ using System.Collections.Generic;
 using Android.Text;
 using Android.Text.Style;
 using Android.Views;
+using Android.Graphics;
+using Android.Content.Res;
+using Frugal_Shop.Fragments;
 
 namespace Frugal_Shop
 {
@@ -24,6 +27,9 @@ namespace Frugal_Shop
     public class MainActivity : AppCompatActivity
     {
         private Android.Support.V7.Widget.Toolbar toolBar;
+        private FrameLayout frameLayout;
+        private SupportFragment selectedFrag;
+        private SettingsFragment settingsFrag;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,11 +38,11 @@ namespace Frugal_Shop
             toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolBar);
             SetSupportActionBar(toolBar);
 
-            SpannableString s = new SpannableString("Frugal Shop");
-            s.SetSpan(new TypefaceSpan("Assets/fonts/BrightLarch.ttf"), 0, s.Length(), SpanTypes.ExclusiveExclusive);
-            
-            SupportActionBar ab = SupportActionBar;
-            ab.TitleFormatted = s;
+            Typeface typeFace = Typeface.CreateFromAsset(this.Assets, "fonts/ChargerBd.otf");
+
+            //SupportActionBar ab = SupportActionBar;
+            TextView toolbarTitle = (TextView)FindViewById(Resource.Id.toolbar_title);
+            toolbarTitle.SetTypeface(typeFace, TypefaceStyle.Bold);
             
             TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
 
@@ -44,7 +50,11 @@ namespace Frugal_Shop
             SetUpViewPager(viewPager);
             tabs.SetupWithViewPager(viewPager);
 
+            var trans = SupportFragmentManager.BeginTransaction();
+            settingsFrag = new SettingsFragment();
+            selectedFrag = settingsFrag;
 
+            trans.Hide(selectedFrag).Commit();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -60,10 +70,24 @@ namespace Frugal_Shop
                 //case Resource.Id.action_favorite:
                 //    return true;
                 case Resource.Id.action_settings:
+                    ShowFragment(settingsFrag);
                     return true;
                 default:
                     return base.OnOptionsItemSelected(item);
             }
+;
+        }
+
+        private void ShowFragment(SupportFragment frag)
+        {
+            var trans = SupportFragmentManager.BeginTransaction();
+
+            trans.Hide(selectedFrag);
+            trans.Show(frag);
+            trans.AddToBackStack(null);
+            trans.Commit();
+
+            selectedFrag = frag;
         }
 
         private void SetUpViewPager(ViewPager viewPager)
@@ -113,49 +137,6 @@ namespace Frugal_Shop
             return new Java.Lang.String(FragmentNames[position]);
         }
     }
-
-    //public class MyAdapter : FragmentPagerAdapter
-    //{
-    //    int tabCount = 3;
-
-    //    public MyAdapter(Android.Support.V4.App.FragmentManager fm):base(fm)
-    //    {
-
-    //    }
-
-    //    public override int Count
-    //    {
-    //        get
-    //        {
-    //            return tabCount;
-    //        }
-    //    }
-
-    //    public override ICharSequence GetPageTitleFormatted(int position)
-    //    {
-    //        ICharSequence cs;
-
-    //        if (position == 0)
-    //        {
-    //            cs = new Java.Lang.String("Man");
-    //        }
-    //        else if (position == 1)
-    //        {
-    //            cs = new Java.Lang.String("Woman");
-    //        }
-    //        else
-    //        {
-    //            cs = new Java.Lang.String("Home");
-    //        }
-
-    //        return cs;
-    //    }
-
-    //    public override Android.Support.V4.App.Fragment GetItem(int position)
-    //    {
-    //        return ContentFragment.NewInstance(position);
-    //    }
-    //}
 
 }
 

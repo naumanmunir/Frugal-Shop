@@ -15,24 +15,9 @@ namespace Frugal_Shop
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            //RecyclerView recyclerView = inflater.Inflate(Resource.Layout.fragment, container, false) as RecyclerView;
-            //recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
             View view = inflater.Inflate(Resource.Layout.fragment, container, false);
 
             return view;
         }
-
-        //private void SetUpRecyclerView(RecyclerView recyclerView)
-        //{
-        //    //var values = GetRandomSubList(Cheeses.CheeseStrings, 30);
-
-        //    List<string> val = new List<string>();
-        //    val.Add("Guess");
-        //    val.Add("Macys");
-        //    val.Add("Adidas");
-            
-            
-        //    //recyclerView.SetAdapter(new SimpleStringRecyclerViewAdapter(recyclerView.Context, values, Activity.Resources));
-        //}
     }
 }

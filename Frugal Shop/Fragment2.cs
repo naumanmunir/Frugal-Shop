@@ -87,7 +87,7 @@ namespace Frugal_Shop
         public override ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View v = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.List_Item, parent, false);
-
+            
             return new SimpleViewHolderExtender(v);
         }
     }

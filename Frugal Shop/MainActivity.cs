@@ -27,34 +27,32 @@ namespace Frugal_Shop
     public class MainActivity : AppCompatActivity
     {
         private Android.Support.V7.Widget.Toolbar toolBar;
+        private TabLayout tabLayout;
         private FrameLayout frameLayout;
-        private SupportFragment selectedFrag;
+        private SupportFragment currSelectedFrag;
         private SettingsFragment settingsFrag;
+        private Android.Support.V4.App.FragmentTransaction fragTran;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolBar);
+            //frameLayout = FindViewById<Android.Widget.RelativeLayout>(Resource.Id.fragmentContainer);
+
+            
             SetSupportActionBar(toolBar);
 
-            Typeface typeFace = Typeface.CreateFromAsset(this.Assets, "fonts/ChargerBd.otf");
+            //FOR BACK TO HOME BUTTON
+            //SupportActionBar.SetHomeButtonEnabled(true);
+            //SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
-            //SupportActionBar ab = SupportActionBar;
-            TextView toolbarTitle = (TextView)FindViewById(Resource.Id.toolbar_title);
-            toolbarTitle.SetTypeface(typeFace, TypefaceStyle.Bold);
-            
-            TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
+            SetTabs();
+            ChangeTitleFont();
 
-            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.vpager);
-            SetUpViewPager(viewPager);
-            tabs.SetupWithViewPager(viewPager);
-
-            var trans = SupportFragmentManager.BeginTransaction();
             settingsFrag = new SettingsFragment();
-            selectedFrag = settingsFrag;
+            currSelectedFrag = settingsFrag;
 
-            trans.Hide(selectedFrag).Commit();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -80,14 +78,42 @@ namespace Frugal_Shop
 
         private void ShowFragment(SupportFragment frag)
         {
-            var trans = SupportFragmentManager.BeginTransaction();
+            if (!frag.IsVisible)
+            {
+                this.OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.main_fade_out);
+                var trans = SupportFragmentManager.BeginTransaction();
 
-            trans.Hide(selectedFrag);
-            trans.Show(frag);
-            trans.AddToBackStack(null);
-            trans.Commit();
+                trans.SetCustomAnimations(Resource.Animation.right_slide_in, Resource.Animation.right_slide_out, Resource.Animation.right_slide_in, Resource.Animation.right_slide_out);
 
-            selectedFrag = frag;
+                trans.Add(Resource.Id.fragmentContainer, frag);
+
+                trans.Hide(currSelectedFrag);
+                trans.Show(frag);
+                trans.AddToBackStack(null);
+                trans.Commit();
+
+                currSelectedFrag = frag;
+            }
+        }
+
+        public void ChangeTitleFont()
+        {
+            Typeface typeFace = Typeface.CreateFromAsset(this.Assets, "fonts/ChargerBd.otf");
+
+            //SupportActionBar ab = SupportActionBar;
+            TextView toolbarTitle = (TextView)FindViewById(Resource.Id.toolbar_title);
+            toolbarTitle.SetTypeface(typeFace, TypefaceStyle.Bold);
+        }
+
+        public void SetTabs()
+        {
+            tabLayout = FindViewById<TabLayout>(Resource.Id.tabs);
+
+            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.vpager);
+
+            SetUpViewPager(viewPager);
+            tabLayout.SetupWithViewPager(viewPager);
+            
         }
 
         private void SetUpViewPager(ViewPager viewPager)

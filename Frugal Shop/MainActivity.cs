@@ -32,13 +32,15 @@ namespace Frugal_Shop
         private SupportFragment currSelectedFrag;
         private SettingsFragment settingsFrag;
         private Android.Support.V4.App.FragmentTransaction fragTran;
+        private Android.Widget.RelativeLayout main_layout;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolBar);
-            //frameLayout = FindViewById<Android.Widget.RelativeLayout>(Resource.Id.fragmentContainer);
+
+            main_layout = FindViewById<Android.Widget.RelativeLayout>(Resource.Id.main_relative_layout);
 
             
             SetSupportActionBar(toolBar);
@@ -68,7 +70,9 @@ namespace Frugal_Shop
                 //case Resource.Id.action_favorite:
                 //    return true;
                 case Resource.Id.action_settings:
-                    ShowFragment(settingsFrag);
+                    StartActivity(new Android.Content.Intent(this, new SettingsActivity().Class));
+                    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
+                    //ShowFragment(settingsFrag);
                     return true;
                 default:
                     return base.OnOptionsItemSelected(item);
@@ -80,7 +84,7 @@ namespace Frugal_Shop
         {
             if (!frag.IsVisible)
             {
-                this.OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.main_fade_out);
+                
                 var trans = SupportFragmentManager.BeginTransaction();
 
                 trans.SetCustomAnimations(Resource.Animation.right_slide_in, Resource.Animation.right_slide_out, Resource.Animation.right_slide_in, Resource.Animation.right_slide_out);

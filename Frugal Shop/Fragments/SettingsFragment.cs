@@ -31,11 +31,6 @@ namespace Frugal_Shop.Fragments
         {
             View view = inflater.Inflate(Resource.Layout.settings, container, false);
 
-            var toolbarTitle = view.FindViewById<TextView>(Resource.Id.custom_toolbar_title);
-
-            toolbarTitle.Text = "Settings";
-
-
             //toolBar = view.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.custom_toolBar);
             //toolBar.BringToFront();
             //((AppCompatActivity)Activity).SetSupportActionBar(toolBar);

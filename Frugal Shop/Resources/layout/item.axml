@@ -5,11 +5,10 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
+        <ImageView
             android:layout_width="fill_parent"
             android:layout_height="180.0dp"
-            android:id="@+id/imageButton1" />
+            android:id="@+id/imgv_item_image" />
         <RelativeLayout
             android:layout_width="200dp"
             android:layout_height="80dp"
@@ -22,11 +21,10 @@
             android:paddingBottom="10dp"
             android:alpha="0.35">
             <TextView
-                android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView1"
+                android:id="@+id/txt_item_name"
                 android:textColor="#000000" />
         </RelativeLayout>
     </RelativeLayout>

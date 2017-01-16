@@ -37,19 +37,19 @@ namespace Frugal_Shop
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var root = inflater.Inflate(Resource.Layout.fragment, container, false);
-            var text = root.FindViewById<TextView>(Resource.Id.textView1);
-            text.SetTextColor(Android.Graphics.Color.Argb(255, 0, 0, 0));
+            //var text = root.FindViewById<TextView>(Resource.Id.textView1);
+            //text.SetTextColor(Android.Graphics.Color.Argb(255, 0, 0, 0));
             if (position == 0)
             {
-                text.Text = "Man";
+                //text.Text = "Man";
             }
             else if (position == 1)
             {
-                text.Text = "Woman";
+                //text.Text = "Woman";
             }
             else
             {
-                text.Text = "Home";
+                //text.Text = "Home";
             }
 
             ViewCompat.SetElevation(root, 50);

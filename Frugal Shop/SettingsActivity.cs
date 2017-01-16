@@ -26,8 +26,9 @@ namespace Frugal_Shop
             toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.custom_toolBar);
 
             SetSupportActionBar(toolBar);
+            SetActionBarTitle();
 
-            
+
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
@@ -52,6 +53,15 @@ namespace Frugal_Shop
                 default:
                     return false;
             }
+        }
+
+        private void SetActionBarTitle()
+        {
+            View includeView = FindViewById(Resource.Id.settings_include_layout);
+
+            var toolbarTitle = includeView.FindViewById<TextView>(Resource.Id.custom_toolbar_title);
+
+            toolbarTitle.Text = "Account";
         }
     }
 }

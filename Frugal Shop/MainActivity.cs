@@ -67,8 +67,10 @@ namespace Frugal_Shop
             switch (item.ItemId)
             {
                 //todo
-                //case Resource.Id.action_favorite:
-                //    return true;
+                case Resource.Id.action_search:
+                    StartActivity(new Android.Content.Intent(this, new SearchActivity().Class));
+                    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
+                    return true;
                 case Resource.Id.action_settings:
                     StartActivity(new Android.Content.Intent(this, new SettingsActivity().Class));
                     OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);

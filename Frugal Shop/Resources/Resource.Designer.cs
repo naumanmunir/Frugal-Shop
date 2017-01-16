@@ -2464,32 +2464,32 @@ namespace Frugal_Shop
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0054
-			public const int abc_background_cache_hint_selector_material_dark = 2131427412;
-			
 			// aapt resource value: 0x7f0b0055
-			public const int abc_background_cache_hint_selector_material_light = 2131427413;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427413;
 			
 			// aapt resource value: 0x7f0b0056
-			public const int abc_color_highlight_material = 2131427414;
+			public const int abc_background_cache_hint_selector_material_light = 2131427414;
+			
+			// aapt resource value: 0x7f0b0057
+			public const int abc_color_highlight_material = 2131427415;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int abc_input_method_navigation_guard = 2131427332;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int abc_primary_text_disable_only_material_dark = 2131427415;
-			
 			// aapt resource value: 0x7f0b0058
-			public const int abc_primary_text_disable_only_material_light = 2131427416;
+			public const int abc_primary_text_disable_only_material_dark = 2131427416;
 			
 			// aapt resource value: 0x7f0b0059
-			public const int abc_primary_text_material_dark = 2131427417;
+			public const int abc_primary_text_disable_only_material_light = 2131427417;
 			
 			// aapt resource value: 0x7f0b005a
-			public const int abc_primary_text_material_light = 2131427418;
+			public const int abc_primary_text_material_dark = 2131427418;
 			
 			// aapt resource value: 0x7f0b005b
-			public const int abc_search_url_text = 2131427419;
+			public const int abc_primary_text_material_light = 2131427419;
+			
+			// aapt resource value: 0x7f0b005c
+			public const int abc_search_url_text = 2131427420;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int abc_search_url_text_normal = 2131427333;
@@ -2500,11 +2500,11 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b0007
 			public const int abc_search_url_text_selected = 2131427335;
 			
-			// aapt resource value: 0x7f0b005c
-			public const int abc_secondary_text_material_dark = 2131427420;
-			
 			// aapt resource value: 0x7f0b005d
-			public const int abc_secondary_text_material_light = 2131427421;
+			public const int abc_secondary_text_material_dark = 2131427421;
+			
+			// aapt resource value: 0x7f0b005e
+			public const int abc_secondary_text_material_light = 2131427422;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int accent_material_dark = 2131427336;
@@ -2524,8 +2524,8 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b000d
 			public const int background_material_light = 2131427341;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int blue = 2131427402;
+			// aapt resource value: 0x7f0b004b
+			public const int blue = 2131427403;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int bright_foreground_disabled_material_dark = 2131427342;
@@ -2563,20 +2563,20 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b0003
 			public const int cardview_shadow_start_color = 2131427331;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int darkblue = 2131427407;
-			
-			// aapt resource value: 0x7f0b0051
-			public const int darkgreen = 2131427409;
+			// aapt resource value: 0x7f0b0050
+			public const int darkblue = 2131427408;
 			
 			// aapt resource value: 0x7f0b0052
-			public const int darkorange = 2131427410;
-			
-			// aapt resource value: 0x7f0b0050
-			public const int darkpurple = 2131427408;
+			public const int darkgreen = 2131427410;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int darkred = 2131427411;
+			public const int darkorange = 2131427411;
+			
+			// aapt resource value: 0x7f0b0051
+			public const int darkpurple = 2131427409;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int darkred = 2131427412;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int design_fab_shadow_end_color = 2131427390;
@@ -2626,8 +2626,8 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b001b
 			public const int foreground_material_light = 2131427355;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int green = 2131427404;
+			// aapt resource value: 0x7f0b004d
+			public const int green = 2131427405;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int highlighted_text_material_dark = 2131427356;
@@ -2677,8 +2677,8 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b002b
 			public const int material_grey_900 = 2131427371;
 			
-			// aapt resource value: 0x7f0b004d
-			public const int orange = 2131427405;
+			// aapt resource value: 0x7f0b004e
+			public const int orange = 2131427406;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int primary_dark_material_dark = 2131427372;
@@ -2707,11 +2707,11 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b0048
 			public const int psts_background_tab_pressed = 2131427400;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int purple = 2131427403;
+			// aapt resource value: 0x7f0b004c
+			public const int purple = 2131427404;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int red = 2131427406;
+			// aapt resource value: 0x7f0b004f
+			public const int red = 2131427407;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int ripple_material_dark = 2131427380;
@@ -2737,11 +2737,11 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f0b003b
 			public const int switch_thumb_disabled_material_light = 2131427387;
 			
-			// aapt resource value: 0x7f0b005e
-			public const int switch_thumb_material_dark = 2131427422;
-			
 			// aapt resource value: 0x7f0b005f
-			public const int switch_thumb_material_light = 2131427423;
+			public const int switch_thumb_material_dark = 2131427423;
+			
+			// aapt resource value: 0x7f0b0060
+			public const int switch_thumb_material_light = 2131427424;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int switch_thumb_normal_material_dark = 2131427388;
@@ -2750,7 +2750,10 @@ namespace Frugal_Shop
 			public const int switch_thumb_normal_material_light = 2131427389;
 			
 			// aapt resource value: 0x7f0b0049
-			public const int white = 2131427401;
+			public const int textcolor = 2131427401;
+			
+			// aapt resource value: 0x7f0b004a
+			public const int white = 2131427402;
 			
 			static Color()
 			{
@@ -3544,94 +3547,97 @@ namespace Frugal_Shop
 			public const int ic_media_route_on_mono_dark = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_pause_dark = 2130837639;
+			public const int ic_notifications_black_48dp = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int ic_pause_light = 2130837640;
+			public const int ic_pause_dark = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int ic_play_dark = 2130837641;
+			public const int ic_pause_light = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int ic_play_light = 2130837642;
+			public const int ic_play_dark = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_search_white_48dp = 2130837643;
+			public const int ic_play_light = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_settings_white_48dp = 2130837644;
+			public const int ic_search_white_48dp = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_speaker_dark = 2130837645;
+			public const int ic_settings_white_48dp = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_speaker_group_dark = 2130837646;
+			public const int ic_speaker_dark = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_speaker_group_light = 2130837647;
+			public const int ic_speaker_group_dark = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_speaker_light = 2130837648;
+			public const int ic_speaker_group_light = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int ic_tv_dark = 2130837649;
+			public const int ic_speaker_light = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int ic_tv_light = 2130837650;
+			public const int ic_tv_dark = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int Icon = 2130837651;
+			public const int ic_tv_light = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int mr_dialog_material_background_dark = 2130837652;
+			public const int Icon = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int mr_dialog_material_background_light = 2130837653;
+			public const int mr_dialog_material_background_dark = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int mr_ic_audiotrack_light = 2130837654;
+			public const int mr_dialog_material_background_light = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int mr_ic_cast_dark = 2130837655;
+			public const int mr_ic_audiotrack_light = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int mr_ic_cast_light = 2130837656;
+			public const int mr_ic_cast_dark = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int mr_ic_close_dark = 2130837657;
+			public const int mr_ic_cast_light = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int mr_ic_close_light = 2130837658;
+			public const int mr_ic_close_dark = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837659;
+			public const int mr_ic_close_light = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int mr_ic_media_route_connecting_mono_light = 2130837660;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int mr_ic_media_route_mono_dark = 2130837661;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int mr_ic_media_route_mono_light = 2130837662;
+			public const int mr_ic_media_route_mono_dark = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int mr_ic_pause_dark = 2130837663;
+			public const int mr_ic_media_route_mono_light = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int mr_ic_pause_light = 2130837664;
+			public const int mr_ic_pause_dark = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int mr_ic_play_dark = 2130837665;
+			public const int mr_ic_pause_light = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int mr_ic_play_light = 2130837666;
-			
-			// aapt resource value: 0x7f0200a4
-			public const int notification_template_icon_bg = 2130837668;
+			public const int mr_ic_play_dark = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int psts_background_tab = 2130837667;
+			public const int mr_ic_play_light = 2130837667;
+			
+			// aapt resource value: 0x7f0200a5
+			public const int notification_template_icon_bg = 2130837669;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int psts_background_tab = 2130837668;
 			
 			static Drawable()
 			{
@@ -3691,11 +3697,11 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07003e
 			public const int action_mode_close_button = 2131165246;
 			
-			// aapt resource value: 0x7f0700ab
-			public const int action_search = 2131165355;
+			// aapt resource value: 0x7f0700b9
+			public const int action_search = 2131165369;
 			
-			// aapt resource value: 0x7f0700ac
-			public const int action_settings = 2131165356;
+			// aapt resource value: 0x7f0700ba
+			public const int action_settings = 2131165370;
 			
 			// aapt resource value: 0x7f07003f
 			public const int activity_chooser_view_content = 2131165247;
@@ -3751,6 +3757,9 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
 			
+			// aapt resource value: 0x7f0700b8
+			public const int contact_us_title = 2131165368;
+			
 			// aapt resource value: 0x7f07004c
 			public const int contentPanel = 2131165260;
 			
@@ -3763,8 +3772,14 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07006b
 			public const int custom_appbar = 2131165291;
 			
+			// aapt resource value: 0x7f0700ad
+			public const int custom_appbar_search = 2131165357;
+			
 			// aapt resource value: 0x7f07006c
 			public const int custom_toolBar = 2131165292;
+			
+			// aapt resource value: 0x7f0700ae
+			public const int custom_toolBar_search = 2131165358;
 			
 			// aapt resource value: 0x7f07006d
 			public const int custom_toolbar_title = 2131165293;
@@ -3847,8 +3862,14 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f070041
 			public const int image = 2131165249;
 			
+			// aapt resource value: 0x7f0700b4
+			public const int imageView1 = 2131165364;
+			
+			// aapt resource value: 0x7f0700b6
+			public const int imageView2 = 2131165366;
+			
 			// aapt resource value: 0x7f070078
-			public const int imageButton1 = 2131165304;
+			public const int imgv_item_image = 2131165304;
 			
 			// aapt resource value: 0x7f0700a7
 			public const int info = 2131165351;
@@ -3867,6 +3888,9 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f0700a5
 			public const int line3 = 2131165349;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int linearLayout1 = 2131165365;
 			
 			// aapt resource value: 0x7f07000b
 			public const int listMode = 2131165195;
@@ -3973,6 +3997,15 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07000c
 			public const int normal = 2131165196;
 			
+			// aapt resource value: 0x7f0700b2
+			public const int noti_relative_layout = 2131165362;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int noti_title = 2131165363;
+			
+			// aapt resource value: 0x7f0700b7
+			public const int notifications = 2131165367;
+			
 			// aapt resource value: 0x7f070028
 			public const int parallax = 2131165224;
 			
@@ -4036,6 +4069,12 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f070068
 			public const int search_go_btn = 2131165288;
 			
+			// aapt resource value: 0x7f0700ab
+			public const int search_include_layout = 2131165355;
+			
+			// aapt resource value: 0x7f0700aa
+			public const int search_layout = 2131165354;
+			
 			// aapt resource value: 0x7f070063
 			public const int search_mag_icon = 2131165283;
 			
@@ -4048,11 +4087,17 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f070069
 			public const int search_voice_btn = 2131165289;
 			
+			// aapt resource value: 0x7f0700ac
+			public const int searchlistView = 2131165356;
+			
 			// aapt resource value: 0x7f07006a
 			public const int select_dialog_listview = 2131165290;
 			
-			// aapt resource value: 0x7f0700aa
-			public const int settings_layout = 2131165354;
+			// aapt resource value: 0x7f0700b1
+			public const int settings_include_layout = 2131165361;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int settings_layout = 2131165360;
 			
 			// aapt resource value: 0x7f070055
 			public const int shortcut = 2131165269;
@@ -4065,6 +4110,9 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
+			
+			// aapt resource value: 0x7f0700af
+			public const int simpleSearchView = 2131165359;
 			
 			// aapt resource value: 0x7f070071
 			public const int snackbar_action = 2131165297;
@@ -4117,9 +4165,6 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07004f
 			public const int textSpacerNoButtons = 2131165263;
 			
-			// aapt resource value: 0x7f070079
-			public const int textView1 = 2131165305;
-			
 			// aapt resource value: 0x7f0700a2
 			public const int time = 2131165346;
 			
@@ -4143,6 +4188,9 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f07006e
 			public const int touch_outside = 2131165294;
+			
+			// aapt resource value: 0x7f070079
+			public const int txt_item_name = 2131165305;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -4421,19 +4469,25 @@ namespace Frugal_Shop
 			public const int psts_tab = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int select_dialog_item_material = 2130903100;
+			public const int search = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int select_dialog_multichoice_material = 2130903101;
+			public const int search_app_bar = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int select_dialog_singlechoice_material = 2130903102;
+			public const int select_dialog_item_material = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int settings = 2130903103;
+			public const int select_dialog_multichoice_material = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int support_simple_spinner_dropdown_item = 2130903104;
+			public const int select_dialog_singlechoice_material = 2130903104;
+			
+			// aapt resource value: 0x7f030041
+			public const int settings = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int support_simple_spinner_dropdown_item = 2130903106;
 			
 			static Layout()
 			{
@@ -4450,6 +4504,9 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f0e0000
 			public const int actionbar_buttons = 2131623936;
+			
+			// aapt resource value: 0x7f0e0001
+			public const int searchable = 2131623937;
 			
 			static Menu()
 			{
@@ -4539,6 +4596,12 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
 			
+			// aapt resource value: 0x7f08002b
+			public const int contact_us = 2131230763;
+			
+			// aapt resource value: 0x7f08002c
+			public const int email_us = 2131230764;
+			
 			// aapt resource value: 0x7f080028
 			public const int menu_settings = 2131230760;
 			
@@ -4586,6 +4649,9 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f08000e
 			public const int mr_user_route_category_name = 2131230734;
+			
+			// aapt resource value: 0x7f08002a
+			public const int settings_pref = 2131230762;
 			
 			// aapt resource value: 0x7f080022
 			public const int status_bar_notification_info_overflow = 2131230754;

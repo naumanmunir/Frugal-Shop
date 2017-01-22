@@ -126,8 +126,8 @@ namespace Frugal_Shop
         {
             TabAdapter tAdapter = new TabAdapter(SupportFragmentManager);
 
-            tAdapter.AddFragment(new Fragment1(), "Woman");
-            tAdapter.AddFragment(new Fragment2(), "Man");
+            tAdapter.AddFragment(new Fragment1(), "Women");
+            tAdapter.AddFragment(new Fragment2(), "Men");
             tAdapter.AddFragment(new Fragment1(), "Home");
 
             viewPager.Adapter = tAdapter;

@@ -13,6 +13,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using Android.Support.V4.App;
 using static Android.Support.V7.Widget.RecyclerView;
+using Frugal_Shop.Models;
 
 namespace Frugal_Shop
 {
@@ -46,31 +47,47 @@ namespace Frugal_Shop
     public class ItemAdapter : RecyclerView.Adapter
     {
         private List<string> dataset;
+        private List<tMan> manItemList;
 
         public ItemAdapter()
         {
             dataset = new List<string>();
+            manItemList = new List<tMan>();
+            frugalservice.WebService1 fs = new frugalservice.WebService1();
 
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
-            dataset.Add("Hi");
+            var mItemList = fs.RetrieveManSale().ToList();
+
+            foreach (var item in mItemList)
+            {
+                tMan m = new tMan();
+
+                m.id = item.id;
+                m.Title = item.Title;
+                m.Domain = item.Domain;
+                m.Thumbnail = item.Thumbnail;
+                
+                manItemList.Add(m);
+            }
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
+            //dataset.Add("Hi");
         }
 
         public override int ItemCount
         {
             get
             {
-                return dataset.Count;
+                return manItemList.Count;
             }
         }
 
@@ -79,8 +96,11 @@ namespace Frugal_Shop
         {
             var simpleHolder = holder as SimpleViewHolderExtender;
 
-            simpleHolder.textview.Text = dataset[position];
+            simpleHolder.textview.Text = manItemList[position].Title;
 
+            Random rnd = new Random();
+            simpleHolder.cardView.SetCardBackgroundColor(Android.Graphics.Color.Argb(255, rnd.Next(256), rnd.Next(256), rnd.Next(256)));
+            
         }
 
         //when the ViewHolder is created
@@ -96,12 +116,15 @@ namespace Frugal_Shop
     {
         public View mView;
         public TextView textview;
+        public CardView cardView;
 
         public SimpleViewHolderExtender(View v):base(v)
         {
             mView = v;
             textview = v.FindViewById<TextView>(Resource.Id.text1);
+            cardView = v.FindViewById<CardView>(Resource.Id.card_view);
 
+            
         }
 
         public override string ToString()

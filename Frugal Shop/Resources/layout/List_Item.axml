@@ -8,21 +8,17 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="4dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="1dp"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp">
         <RelativeLayout
             android:layout_width="200dp"
             android:layout_height="80dp"
-            android:background="#fff"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="75dp"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:alpha="0.35">
+            android:layout_gravity="right|bottom"
+            android:background="#4dffffff"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp">
           <TextView
               android:textAppearance="?android:attr/textAppearanceMedium"
               android:layout_width="match_parent"

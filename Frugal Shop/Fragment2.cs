@@ -14,6 +14,8 @@ using Android.Support.V7.Widget;
 using Android.Support.V4.App;
 using static Android.Support.V7.Widget.RecyclerView;
 using Frugal_Shop.Models;
+using Android.Graphics;
+using System.Net;
 
 namespace Frugal_Shop
 {
@@ -99,7 +101,30 @@ namespace Frugal_Shop
             simpleHolder.textview.Text = manItemList[position].Title;
 
             Random rnd = new Random();
-            simpleHolder.cardView.SetCardBackgroundColor(Android.Graphics.Color.Argb(255, rnd.Next(256), rnd.Next(256), rnd.Next(256)));
+            //simpleHolder.cardView.SetCardBackgroundColor(Android.Graphics.Color.Argb(255, rnd.Next(256), rnd.Next(256), rnd.Next(256)));
+            //
+            try
+            {
+                Bitmap imageBitmap = null;
+                var url = manItemList[position].Thumbnail;
+
+                using (var webClient = new WebClient())
+                {
+                    var imageBytes = webClient.DownloadData(url);
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+
+                        simpleHolder.imgView.SetImageBitmap(imageBitmap);
+                    }
+                }
+
+                
+            }
+            catch (Exception)
+            {
+                simpleHolder.imgView.SetBackgroundColor(Android.Graphics.Color.Argb(255, rnd.Next(256), rnd.Next(256), rnd.Next(256)));
+            }
             
         }
 
@@ -117,14 +142,15 @@ namespace Frugal_Shop
         public View mView;
         public TextView textview;
         public CardView cardView;
+        public ImageView imgView;
 
         public SimpleViewHolderExtender(View v):base(v)
         {
             mView = v;
             textview = v.FindViewById<TextView>(Resource.Id.text1);
             cardView = v.FindViewById<CardView>(Resource.Id.card_view);
+            imgView = v.FindViewById<ImageView>(Resource.Id.img_view);
 
-            
         }
 
         public override string ToString()

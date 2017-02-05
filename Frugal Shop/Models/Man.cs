@@ -19,4 +19,9 @@ namespace Frugal_Shop.Models
         public string Domain { get; set; }
         public string Thumbnail { get; set; }
     }
+
+    public class tManListModel
+    {
+        public List<tMan> tManList { get; set; }
+    }
 }

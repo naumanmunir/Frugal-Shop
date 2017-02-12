@@ -5,33 +5,51 @@
   <PreferenceCategory
           android:title="@string/settings_pref">
 
-    <CheckBoxPreference
-            android:key="checkbox_preference"
-            android:title="Title1"/>
+    <PreferenceScreen
+                android:title="Notifications"
+                android:icon="@drawable/ic_notifications_24dp"
+                >
+      <intent android:action="android.intent.action.VIEW"
+        />
+    </PreferenceScreen>
   </PreferenceCategory>
+ 
   <PreferenceCategory
         android:title="CONTACT US">
 
-    <ListPreference
-                android:key="list_preference"
-                android:title="Heelo"
-                android:entries="@array/contact_us_list"
-                android:entryValues="@array/contactus_values_list_pref"/>
+    <Preference
+            android:key="list_preference"
+            android:title="Email: contact@frugal.com"
+            android:icon="@drawable/ic_email_24dp"/>
+    <Preference
+            android:key="list_preference"
+            android:title="Call: (646) 409-0001"
+            android:icon="@drawable/ic_phone_24dp"/>
+    <Preference
+            android:key="list_preference"
+            android:title="Tweet: @frugalservice"
+            android:icon="@drawable/ic_twitter_24dp"/>
+    <Preference
+            android:key="list_preference"
+            android:title="Send feedback about this app"
+            android:icon="@drawable/ic_paperplane_24dp"/>
+    <Preference
+            android:key="list_preference"
+            android:title="Rate Frugal app"
+            android:icon="@drawable/ic_star_24dp"/>
   </PreferenceCategory>
+  
   <PreferenceCategory
         android:title="LEGAL">
 
-    <ListPreference
+    <Preference
                 android:key="list_preference"
-                android:title="Heelo"
-                android:entries="@array/entries_list_preference"
-                android:entryValues="@array/entryvalues_list_preference"
-                android:icon="@drawable/ic_notifications_24dp"/>
-    <ListPreference
-            android:key="list_preference"
-            android:title="Heelo"
-            android:entries="@array/entries_list_preference"
-            android:entryValues="@array/entryvalues_list_preference"/>
-
+                android:title="Privacy Policy"/>
+    
+    <Preference
+                android:key="pref_key_sms_delete_limit"
+                android:title="Terms of Service" />
+    
   </PreferenceCategory>
+  
  </PreferenceScreen>

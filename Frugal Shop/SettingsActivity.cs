@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using Android.Util;
+using Frugal_Shop.Fragments;
 
 namespace Frugal_Shop
 {
@@ -32,6 +33,7 @@ namespace Frugal_Shop
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
+            FragmentManager.BeginTransaction().Add(Resource.Id.PreferencesContainer, new SettingsFragment()).Commit();
             // Create your application here
         }
 

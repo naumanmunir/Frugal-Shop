@@ -52,8 +52,8 @@ namespace Frugal_Shop
             SetTabs();
             ChangeTitleFont();
 
-            settingsFrag = new SettingsFragment();
-            currSelectedFrag = settingsFrag;
+            //settingsFrag = new SettingsFragment();
+            //currSelectedFrag = settingsFrag;
 
         }
 

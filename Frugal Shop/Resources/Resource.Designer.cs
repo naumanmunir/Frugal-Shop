@@ -1399,8 +1399,20 @@ namespace Frugal_Shop
 		public partial class Array
 		{
 			
+			// aapt resource value: 0x7f0d0004
+			public const int androidcolors = 2131558404;
+			
+			// aapt resource value: 0x7f0d0002
+			public const int contact_us_list = 2131558402;
+			
+			// aapt resource value: 0x7f0d0003
+			public const int contactus_values_list_pref = 2131558403;
+			
 			// aapt resource value: 0x7f0d0000
-			public const int androidcolors = 2131558400;
+			public const int entries_list_preference = 2131558400;
+			
+			// aapt resource value: 0x7f0d0001
+			public const int entryvalues_list_preference = 2131558401;
 			
 			static Array()
 			{
@@ -3547,7 +3559,7 @@ namespace Frugal_Shop
 			public const int ic_media_route_on_mono_dark = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_notifications_black_48dp = 2130837639;
+			public const int ic_notifications_24dp = 2130837639;
 			
 			// aapt resource value: 0x7f020088
 			public const int ic_pause_dark = 2130837640;
@@ -3652,6 +3664,9 @@ namespace Frugal_Shop
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0700b3
+			public const int PreferencesContainer = 2131165363;
+			
 			// aapt resource value: 0x7f07009d
 			public const int action0 = 2131165341;
 			
@@ -3697,11 +3712,11 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f07003e
 			public const int action_mode_close_button = 2131165246;
 			
-			// aapt resource value: 0x7f0700ba
-			public const int action_search = 2131165370;
+			// aapt resource value: 0x7f0700b4
+			public const int action_search = 2131165364;
 			
-			// aapt resource value: 0x7f0700bb
-			public const int action_settings = 2131165371;
+			// aapt resource value: 0x7f0700b5
+			public const int action_settings = 2131165365;
 			
 			// aapt resource value: 0x7f07003f
 			public const int activity_chooser_view_content = 2131165247;
@@ -3756,9 +3771,6 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f07001f
 			public const int collapseActionView = 2131165215;
-			
-			// aapt resource value: 0x7f0700b9
-			public const int contact_us_title = 2131165369;
 			
 			// aapt resource value: 0x7f07004c
 			public const int contentPanel = 2131165260;
@@ -3862,12 +3874,6 @@ namespace Frugal_Shop
 			// aapt resource value: 0x7f070041
 			public const int image = 2131165249;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int imageView1 = 2131165365;
-			
-			// aapt resource value: 0x7f0700b7
-			public const int imageView2 = 2131165367;
-			
 			// aapt resource value: 0x7f07007b
 			public const int img_view = 2131165307;
 			
@@ -3891,9 +3897,6 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f0700a6
 			public const int line3 = 2131165350;
-			
-			// aapt resource value: 0x7f0700b6
-			public const int linearLayout1 = 2131165366;
 			
 			// aapt resource value: 0x7f07000b
 			public const int listMode = 2131165195;
@@ -3999,15 +4002,6 @@ namespace Frugal_Shop
 			
 			// aapt resource value: 0x7f07000c
 			public const int normal = 2131165196;
-			
-			// aapt resource value: 0x7f0700b3
-			public const int noti_relative_layout = 2131165363;
-			
-			// aapt resource value: 0x7f0700b4
-			public const int noti_title = 2131165364;
-			
-			// aapt resource value: 0x7f0700b8
-			public const int notifications = 2131165368;
 			
 			// aapt resource value: 0x7f070028
 			public const int parallax = 2131165224;
@@ -4469,28 +4463,31 @@ namespace Frugal_Shop
 			public const int notification_template_part_time = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int psts_tab = 2130903099;
+			public const int preferences = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int search = 2130903100;
+			public const int psts_tab = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int search_app_bar = 2130903101;
+			public const int search = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int select_dialog_item_material = 2130903102;
+			public const int search_app_bar = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int select_dialog_multichoice_material = 2130903103;
+			public const int select_dialog_item_material = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int select_dialog_singlechoice_material = 2130903104;
+			public const int select_dialog_multichoice_material = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int settings = 2130903105;
+			public const int select_dialog_singlechoice_material = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int support_simple_spinner_dropdown_item = 2130903106;
+			public const int settings = 2130903106;
+			
+			// aapt resource value: 0x7f030043
+			public const int support_simple_spinner_dropdown_item = 2130903107;
 			
 			static Layout()
 			{

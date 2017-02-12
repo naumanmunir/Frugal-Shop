@@ -8,7 +8,13 @@
         layout="@layout/app_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-    <LinearLayout
+  <FrameLayout
+        android:id="@+id/PreferencesContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/settings_include_layout"/>
+    <!--<LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="16dp"
@@ -104,5 +110,5 @@
                     android:clickable="true" />
             </LinearLayout>
         </RelativeLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

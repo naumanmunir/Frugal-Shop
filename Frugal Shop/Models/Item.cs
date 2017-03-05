@@ -12,10 +12,23 @@ using Android.Widget;
 
 namespace Frugal_Shop.Models
 {
-    public class Item
+    public class SaleItem
     {
         public int ID { get; set; }
-        public string URL { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
+        public string Domain { get; set; }
+        public string Thumbnail { get; set; }
+        public DateTime DateAdded { get; set; }
+        public string Img { get; set; }
+        public string SaleType { get; set; }
+        public string ItemType { get; set; }
+        public string CategoryType { get; set; }
+        public string Brand { get; set; }
+
+    }
+
+    public class SaleItemList
+    {
+        public List<SaleItem> ListSaleItems { get; set; }
     }
 }

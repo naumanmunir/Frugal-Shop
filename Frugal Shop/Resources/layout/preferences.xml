@@ -9,7 +9,8 @@
                 android:title="Notifications"
                 android:icon="@drawable/ic_notifications_24dp"
                 >
-      <intent android:action="android.intent.action.VIEW"
+      <intent 
+        android:fragment="@layout/notificationpreferences"
         />
     </PreferenceScreen>
   </PreferenceCategory>

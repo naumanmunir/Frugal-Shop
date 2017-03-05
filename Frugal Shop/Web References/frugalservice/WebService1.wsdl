@@ -23,6 +23,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Thumbnail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DatetimeAdded" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaleEnds" nillable="true" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:element name="RetrieveWomanSale">
@@ -31,20 +33,57 @@
       <s:element name="RetrieveWomanSaleResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="RetrieveWomanSaleResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveWomanSaleResult" type="tns:ArrayOfTWoman" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="RetrieveHomeSale">
-        <s:complexType />
-      </s:element>
-      <s:element name="RetrieveHomeSaleResponse">
+      <s:complexType name="ArrayOfTWoman">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tWoman" nillable="true" type="tns:tWoman" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tWoman">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Thumbnail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DatetimeAdded" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveSales">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="RetrieveHomeSaleResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="RetrieveSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveSalesResult" type="tns:ArrayOfVSale" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVSale">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="vSale" nillable="true" type="tns:vSale" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="vSale">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Thumbnail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAdded" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaleType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Img" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="RetrieveManSaleSoapIn">
@@ -59,11 +98,11 @@
   <wsdl:message name="RetrieveWomanSaleSoapOut">
     <wsdl:part name="parameters" element="tns:RetrieveWomanSaleResponse" />
   </wsdl:message>
-  <wsdl:message name="RetrieveHomeSaleSoapIn">
-    <wsdl:part name="parameters" element="tns:RetrieveHomeSale" />
+  <wsdl:message name="RetrieveSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveSales" />
   </wsdl:message>
-  <wsdl:message name="RetrieveHomeSaleSoapOut">
-    <wsdl:part name="parameters" element="tns:RetrieveHomeSaleResponse" />
+  <wsdl:message name="RetrieveSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveSalesResponse" />
   </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="RetrieveManSale">
@@ -74,9 +113,9 @@
       <wsdl:input message="tns:RetrieveWomanSaleSoapIn" />
       <wsdl:output message="tns:RetrieveWomanSaleSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="RetrieveHomeSale">
-      <wsdl:input message="tns:RetrieveHomeSaleSoapIn" />
-      <wsdl:output message="tns:RetrieveHomeSaleSoapOut" />
+    <wsdl:operation name="RetrieveSales">
+      <wsdl:input message="tns:RetrieveSalesSoapIn" />
+      <wsdl:output message="tns:RetrieveSalesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -99,8 +138,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RetrieveHomeSale">
-      <soap:operation soapAction="http://tempuri.org/RetrieveHomeSale" style="document" />
+    <wsdl:operation name="RetrieveSales">
+      <soap:operation soapAction="http://tempuri.org/RetrieveSales" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -129,8 +168,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RetrieveHomeSale">
-      <soap12:operation soapAction="http://tempuri.org/RetrieveHomeSale" style="document" />
+    <wsdl:operation name="RetrieveSales">
+      <soap12:operation soapAction="http://tempuri.org/RetrieveSales" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

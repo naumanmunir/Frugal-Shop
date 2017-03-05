@@ -34,7 +34,7 @@ namespace Frugal_Shop
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             FragmentManager.BeginTransaction().Add(Resource.Id.PreferencesContainer, new SettingsFragment()).Commit();
-            // Create your application here
+
         }
 
         protected override void OnPause()
@@ -63,7 +63,7 @@ namespace Frugal_Shop
 
             var toolbarTitle = includeView.FindViewById<TextView>(Resource.Id.custom_toolbar_title);
 
-            toolbarTitle.Text = "Account";
+            toolbarTitle.Text = "Settings";
         }
     }
 }

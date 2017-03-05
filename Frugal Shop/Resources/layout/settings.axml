@@ -8,11 +8,11 @@
         layout="@layout/app_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-  <FrameLayout
+    <FrameLayout
         android:id="@+id/PreferencesContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:layout_below="@id/settings_include_layout"/>
+        android:layout_below="@id/settings_include_layout" />
 </RelativeLayout>

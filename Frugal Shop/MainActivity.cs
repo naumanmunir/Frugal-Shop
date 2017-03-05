@@ -20,34 +20,37 @@ using Android.Views;
 using Android.Graphics;
 using Android.Content.Res;
 using Frugal_Shop.Fragments;
+using Android.Support.V4.Widget;
 
 namespace Frugal_Shop
 {
-    [Activity(Label = "Frugal Shop", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+    [Activity(Label = "Frugal Shop", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/MyTheme")]
     public class MainActivity : AppCompatActivity
     {
         private Android.Support.V7.Widget.Toolbar toolBar;
         private TabLayout tabLayout;
-        private FrameLayout frameLayout;
         private SupportFragment currSelectedFrag;
-        private SettingsFragment settingsFrag;
-        private Android.Support.V4.App.FragmentTransaction fragTran;
-        private Android.Widget.RelativeLayout main_layout;
+        private DrawerLayout drawerLayout;
+        private NavigationView navigationView;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolBar);
-
-            main_layout = FindViewById<Android.Widget.RelativeLayout>(Resource.Id.main_relative_layout);
-
-            
+       
             SetSupportActionBar(toolBar);
 
             //FOR BACK TO HOME BUTTON
             //SupportActionBar.SetHomeButtonEnabled(true);
             //SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetHomeButtonEnabled(true);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
+            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
             SetTabs();
             ChangeTitleFont();
@@ -72,9 +75,12 @@ namespace Frugal_Shop
                     OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
                     return true;
                 case Resource.Id.action_settings:
-                    StartActivity(new Android.Content.Intent(this, new SettingsActivity().Class));
+                    StartActivity(new Android.Content.Intent(this, new sett().Class));
                     OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
                     //ShowFragment(settingsFrag);
+                    return true;
+                case Android.Resource.Id.Home:
+                    drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
                     return true;
                 default:
                     return base.OnOptionsItemSelected(item);
@@ -126,8 +132,8 @@ namespace Frugal_Shop
         {
             TabAdapter tAdapter = new TabAdapter(SupportFragmentManager);
 
-            tAdapter.AddFragment(new Fragment1(), "Women");
-            tAdapter.AddFragment(new Fragment2(), "Men");
+            tAdapter.AddFragment(new WomenItemFragment(), "Women");
+            tAdapter.AddFragment(new MenItemFragment(), "Men");
             tAdapter.AddFragment(new Fragment1(), "Home");
 
             viewPager.Adapter = tAdapter;

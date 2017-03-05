@@ -41,19 +41,20 @@ namespace Frugal_Shop
             rcLayoutManager = new LinearLayoutManager(recyclerView.Context);
             recyclerView.SetLayoutManager(rcLayoutManager);
 
-            rcAdapter = new ItemAdapter();
-            recyclerView.SetAdapter(rcAdapter);
+            rcAdapter = new MenItemAdapter();
+            //recyclerView.SetAdapter(rcAdapter);
 
             return recyclerView;
         }
     }
 
-    public class ItemAdapter : RecyclerView.Adapter
+    public class MenItemAdapter : RecyclerView.Adapter
     {
         private List<string> dataset;
         private List<tMan> manItemList;
+        private List<SaleItem> saleItemList;
 
-        public ItemAdapter()
+        public MenItemAdapter()
         {
             dataset = new List<string>();
             manItemList = new List<tMan>();

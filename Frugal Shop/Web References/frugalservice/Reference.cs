@@ -33,7 +33,7 @@ namespace Frugal_Shop.frugalservice {
         
         private System.Threading.SendOrPostCallback RetrieveWomanSaleOperationCompleted;
         
-        private System.Threading.SendOrPostCallback RetrieveHomeSaleOperationCompleted;
+        private System.Threading.SendOrPostCallback RetrieveSalesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -80,7 +80,7 @@ namespace Frugal_Shop.frugalservice {
         public event RetrieveWomanSaleCompletedEventHandler RetrieveWomanSaleCompleted;
         
         /// <remarks/>
-        public event RetrieveHomeSaleCompletedEventHandler RetrieveHomeSaleCompleted;
+        public event RetrieveSalesCompletedEventHandler RetrieveSalesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetrieveManSale", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -111,9 +111,9 @@ namespace Frugal_Shop.frugalservice {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetrieveWomanSale", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RetrieveWomanSale() {
+        public tWoman[] RetrieveWomanSale() {
             object[] results = this.Invoke("RetrieveWomanSale", new object[0]);
-            return ((string)(results[0]));
+            return ((tWoman[])(results[0]));
         }
         
         /// <remarks/>
@@ -137,29 +137,31 @@ namespace Frugal_Shop.frugalservice {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetrieveHomeSale", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string RetrieveHomeSale() {
-            object[] results = this.Invoke("RetrieveHomeSale", new object[0]);
-            return ((string)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RetrieveSales", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public vSale[] RetrieveSales(string category) {
+            object[] results = this.Invoke("RetrieveSales", new object[] {
+                        category});
+            return ((vSale[])(results[0]));
         }
         
         /// <remarks/>
-        public void RetrieveHomeSaleAsync() {
-            this.RetrieveHomeSaleAsync(null);
+        public void RetrieveSalesAsync(string category) {
+            this.RetrieveSalesAsync(category, null);
         }
         
         /// <remarks/>
-        public void RetrieveHomeSaleAsync(object userState) {
-            if ((this.RetrieveHomeSaleOperationCompleted == null)) {
-                this.RetrieveHomeSaleOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRetrieveHomeSaleOperationCompleted);
+        public void RetrieveSalesAsync(string category, object userState) {
+            if ((this.RetrieveSalesOperationCompleted == null)) {
+                this.RetrieveSalesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRetrieveSalesOperationCompleted);
             }
-            this.InvokeAsync("RetrieveHomeSale", new object[0], this.RetrieveHomeSaleOperationCompleted, userState);
+            this.InvokeAsync("RetrieveSales", new object[] {
+                        category}, this.RetrieveSalesOperationCompleted, userState);
         }
         
-        private void OnRetrieveHomeSaleOperationCompleted(object arg) {
-            if ((this.RetrieveHomeSaleCompleted != null)) {
+        private void OnRetrieveSalesOperationCompleted(object arg) {
+            if ((this.RetrieveSalesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.RetrieveHomeSaleCompleted(this, new RetrieveHomeSaleCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.RetrieveSalesCompleted(this, new RetrieveSalesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -198,6 +200,10 @@ namespace Frugal_Shop.frugalservice {
         
         private string thumbnailField;
         
+        private System.Nullable<System.DateTime> datetimeAddedField;
+        
+        private System.Nullable<System.DateTime> saleEndsField;
+        
         /// <remarks/>
         public int id {
             get {
@@ -235,6 +241,226 @@ namespace Frugal_Shop.frugalservice {
             }
             set {
                 this.thumbnailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> DatetimeAdded {
+            get {
+                return this.datetimeAddedField;
+            }
+            set {
+                this.datetimeAddedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> SaleEnds {
+            get {
+                return this.saleEndsField;
+            }
+            set {
+                this.saleEndsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1087.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class vSale {
+        
+        private int idField;
+        
+        private string titleField;
+        
+        private string domainField;
+        
+        private string thumbnailField;
+        
+        private System.DateTime dateAddedField;
+        
+        private string saleTypeField;
+        
+        private string itemTypeField;
+        
+        private string categoryTypeField;
+        
+        private string brandField;
+        
+        private string imgField;
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Title {
+            get {
+                return this.titleField;
+            }
+            set {
+                this.titleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Domain {
+            get {
+                return this.domainField;
+            }
+            set {
+                this.domainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Thumbnail {
+            get {
+                return this.thumbnailField;
+            }
+            set {
+                this.thumbnailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DateAdded {
+            get {
+                return this.dateAddedField;
+            }
+            set {
+                this.dateAddedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SaleType {
+            get {
+                return this.saleTypeField;
+            }
+            set {
+                this.saleTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemType {
+            get {
+                return this.itemTypeField;
+            }
+            set {
+                this.itemTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CategoryType {
+            get {
+                return this.categoryTypeField;
+            }
+            set {
+                this.categoryTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Brand {
+            get {
+                return this.brandField;
+            }
+            set {
+                this.brandField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Img {
+            get {
+                return this.imgField;
+            }
+            set {
+                this.imgField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1087.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class tWoman {
+        
+        private int idField;
+        
+        private string titleField;
+        
+        private string domainField;
+        
+        private string thumbnailField;
+        
+        private System.DateTime datetimeAddedField;
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Title {
+            get {
+                return this.titleField;
+            }
+            set {
+                this.titleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Domain {
+            get {
+                return this.domainField;
+            }
+            set {
+                this.domainField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Thumbnail {
+            get {
+                return this.thumbnailField;
+            }
+            set {
+                this.thumbnailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DatetimeAdded {
+            get {
+                return this.datetimeAddedField;
+            }
+            set {
+                this.datetimeAddedField = value;
             }
         }
     }
@@ -283,36 +509,36 @@ namespace Frugal_Shop.frugalservice {
         }
         
         /// <remarks/>
-        public string Result {
+        public tWoman[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((tWoman[])(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1087.0")]
-    public delegate void RetrieveHomeSaleCompletedEventHandler(object sender, RetrieveHomeSaleCompletedEventArgs e);
+    public delegate void RetrieveSalesCompletedEventHandler(object sender, RetrieveSalesCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1087.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class RetrieveHomeSaleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class RetrieveSalesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal RetrieveHomeSaleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal RetrieveSalesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public vSale[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((vSale[])(this.results[0]));
             }
         }
     }

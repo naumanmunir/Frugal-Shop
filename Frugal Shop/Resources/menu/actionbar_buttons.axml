@@ -11,7 +11,7 @@
   
   <!-- Settings, should always be in the overflow -->
   <item android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings_white_48dp"
+        android:icon="@mipmap/ic_settings_white_48dp"
         app:showAsAction="always"/>
 
 </menu>

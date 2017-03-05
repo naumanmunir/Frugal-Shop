@@ -17,28 +17,84 @@ namespace Frugal_Shop.Fragments
 {
     public class SettingsFragment : PreferenceFragment
     {
-        private Android.Support.V7.Widget.Toolbar toolBar;
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             AddPreferencesFromResource(Resource.Layout.preferences);
-            
 
-            // Create your fragment here
+            
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            //View view = inflater.Inflate(Resource.Layout.settings, container, false);
-
-            //toolBar = view.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.custom_toolBar);
-            //toolBar.BringToFront();
-            //((AppCompatActivity)Activity).SetSupportActionBar(toolBar);
-
-            //return view;
-
             return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        
+    }
+
+    [Activity(Label = "sett", Theme = "@style/MyTheme")]
+    public class sett : PreferenceActivity, Android.Views.View.IOnClickListener
+    {
+        private Android.Support.V7.Widget.Toolbar toolBar;
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetActionBarTitle();
+
+            
+        }
+
+        public override void SetContentView(int layoutResID)
+        {
+
+            var contentView = (ViewGroup)LayoutInflater.From(this).Inflate(
+                Resource.Layout.settings, new LinearLayout(this), false);
+
+            toolBar = contentView.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.custom_toolBar);
+
+            toolBar.SetNavigationOnClickListener(this);
+
+            
+
+            ViewGroup contentWrapper = (ViewGroup)contentView.FindViewById(Resource.Id.PreferencesContainer);
+            LayoutInflater.From(this).Inflate(layoutResID, contentWrapper, true);
+
+            Window.SetContentView(contentView);
+        }
+
+        public override void OnBuildHeaders(IList<Header> target)
+        {
+            LoadHeadersFromResource(Resource.Xml.preference_headers, target);  
+        }
+
+
+        private void SetActionBarTitle()
+        {
+            View includeView = FindViewById(Resource.Id.settings_include_layout);
+
+            var toolbarTitle = includeView.FindViewById<TextView>(Resource.Id.custom_toolbar_title);
+
+            toolbarTitle.Text = "Settings";
+        }
+
+        public void OnClick(View v)
+        {
+            Finish();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                //why cant I catch Resource.id.Home itemID ??? hard coded for now
+                case 16908332:
+                    Finish();
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

@@ -52,11 +52,11 @@ namespace Frugal_Shop
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
-            SetTabs();
-            ChangeTitleFont();
+            drawerLayout.SetScrimColor(Android.Resource.Color.Transparent);
 
-            //settingsFrag = new SettingsFragment();
-            //currSelectedFrag = settingsFrag;
+            SetTabs();
+            ChangeTitleFont(); 
+            SetDrawerBarTitle();
 
         }
 
@@ -70,15 +70,15 @@ namespace Frugal_Shop
             switch (item.ItemId)
             {
                 //todo
-                case Resource.Id.action_search:
-                    StartActivity(new Android.Content.Intent(this, new SearchActivity().Class));
-                    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
-                    return true;
-                case Resource.Id.action_settings:
-                    StartActivity(new Android.Content.Intent(this, new sett().Class));
-                    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
-                    //ShowFragment(settingsFrag);
-                    return true;
+                //case Resource.Id.action_search:
+                //    StartActivity(new Android.Content.Intent(this, new SearchActivity().Class));
+                //    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
+                //    return true;
+                //case Resource.Id.action_settings:
+                //    StartActivity(new Android.Content.Intent(this, new sett().Class));
+                //    OverridePendingTransition(Resource.Animation.right_slide_in, Resource.Animation.activity_close_scale);
+                //    //ShowFragment(settingsFrag);
+                //    return true;
                 case Android.Resource.Id.Home:
                     drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
                     return true;
@@ -114,6 +114,19 @@ namespace Frugal_Shop
 
             //SupportActionBar ab = SupportActionBar;
             TextView toolbarTitle = (TextView)FindViewById(Resource.Id.toolbar_title);
+            toolbarTitle.SetTypeface(typeFace, TypefaceStyle.Bold);
+        }
+
+        public void SetDrawerBarTitle()
+        {
+            Typeface typeFace = Typeface.CreateFromAsset(this.Assets, "fonts/ChargerBd.otf");
+
+            Android.Views.View headerView = navigationView.GetHeaderView(0);
+
+            var toolbarTitle = headerView.FindViewById<TextView>(Resource.Id.custom_toolbar_title);
+
+            toolbarTitle.Text = "Frugal";
+            toolbarTitle.TextSize = 35;
             toolbarTitle.SetTypeface(typeFace, TypefaceStyle.Bold);
         }
 

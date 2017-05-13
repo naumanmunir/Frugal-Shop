@@ -3,15 +3,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
+  <group android:id="@+id/grp1" android:checkableBehavior="single" >
   <!--Update strings and icons-->
   <item android:id="@+id/action_edit"
-	      android:title="Edit"
-	      app:showAsAction="ifRoom"/>
+	      android:title="Notifications"
+        android:icon="@drawable/ic_message_48dp"
+	      />
+  </group>
 
+  <group android:id="@+id/grp2" android:checkableBehavior="single" >
   <item android:id="@+id/action_save"
-         android:title="Save"
-         app:showAsAction="ifRoom|withText"/>
+         android:title="service@frugal.com"
+        android:icon="@drawable/ic_message_48dp"/>
 
+  <item android:id="@+id/phone_num"
+       android:title="(977) 135-9090"
+        android:icon="@drawable/ic_phone_48dp"/>
+
+  <item android:id="@+id/feedback"
+       android:title="App feedback"
+        android:icon="@drawable/ic_plane_48dp"/>
+  </group>
+
+
+  <group android:id="@+id/grp3" android:checkableBehavior="single" >
+    <!--Update strings and icons-->
+    <item android:id="@+id/policy"
+          android:title="Privacy Policy"
+          android:icon="@drawable/ic_lock_48dp"
+	      />
+    <item android:id="@+id/terms"
+      android:title="Terms Of Service"
+      android:icon="@drawable/ic_document_48dp"
+	      />
+  </group>
 </menu>
 
 <!-- Code to implement into Activity:
